@@ -1,0 +1,34 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    app.kubernetes.io/instance: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion }}
+    app.kubernetes.io/component: config
+    app.kubernetes.io/part-of: {{ .Chart.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/created-by: helm
+data:
+  index.html: |
+    <html>
+      <head>
+        <title>So Eden sank to grief</title>
+      </head>
+      <body>
+        Nature’s first green is gold,<br>
+        Her hardest hue to hold.<br>
+        Her early leaf’s a flower;<br>
+        But only so an hour.<br>
+        Then leaf subsides to leaf.<br>
+        So Eden sank to grief,<br>
+        So dawn goes down to day.<br>
+        Nothing gold can stay.<br>
+        - Robert Frost
+      </body>
+    </html>
+...
