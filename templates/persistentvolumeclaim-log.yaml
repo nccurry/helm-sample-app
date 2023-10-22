@@ -13,8 +13,6 @@ metadata:
     app.kubernetes.io/part-of: {{ .Chart.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
     app.kubernetes.io/created-by: helm
-  annotations:
-    argocd.argoproj.io/sync-wave: "10"
 spec:
   accessModes:
   - ReadWriteOnce
